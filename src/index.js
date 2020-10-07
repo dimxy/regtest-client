@@ -1,5 +1,6 @@
 'use strict';
 Object.defineProperty(exports, '__esModule', { value: true });
+exports.RegtestUtils = void 0;
 const assert = require('assert');
 const rng = require('randombytes');
 const bs58check = require('bs58check');
@@ -67,6 +68,12 @@ class RegtestUtils {
     return this.dhttp({
       method: 'GET',
       url: `${this._APIURL}/a/${address}/unspents`,
+    });
+  }
+  async ccunspents(address) {
+    return this.dhttp({
+      method: 'GET',
+      url: `${this._APIURL}/a/${address}/ccunspents`,
     });
   }
   async faucet(address, value) {

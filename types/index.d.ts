@@ -53,13 +53,14 @@ export declare class RegtestUtils {
     private _APIURL;
     private _APIPASS;
     constructor(_opts?: RegUtilOpts);
-    readonly RANDOM_ADDRESS: string;
+    get RANDOM_ADDRESS(): string;
     dhttp(options: Request): Promise<DhttpResponse>;
     broadcast(txHex: string): Promise<null>;
     mine(count: number): Promise<string[]>;
     height(): Promise<number>;
     fetch(txId: string): Promise<Transaction>;
     unspents(address: string): Promise<Unspent[]>;
+    ccunspents(address: string): Promise<Unspent[]>;
     faucet(address: string, value: number): Promise<Unspent>;
     faucetComplex(output: Buffer, value: number): Promise<Unspent>;
     verify(txo: Unspent): Promise<void>;
