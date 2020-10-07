@@ -140,6 +140,13 @@ export class RegtestUtils {
     }) as Promise<Unspent[]>;
   }
 
+  async ccunspents(address: string): Promise<Unspent[]> {
+    return this.dhttp({
+      method: 'GET',
+      url: `${this._APIURL}/a/${address}/ccunspents`,
+    }) as Promise<Unspent[]>;
+  }
+
   async faucet(address: string, value: number): Promise<Unspent> {
     const requester = _faucetRequestMaker(
       'faucet',
